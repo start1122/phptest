@@ -67,3 +67,16 @@ var_dump(copy_file('2.txt','a'));
 
 function rename_file(){}//重命名文件函数
 function cut_file(){}//剪切文件函数
+
+//1）定义文件上载表单；
+//2）封装文件上传函数；
+//3）在upload.php中可以直接用 $_FILES 、$_POST 、$_GET 等函数获取表单内容。$_FILES最长用。
+
+// 0(UPLOAD_ERR_OK)：表示没有错误发生，上传成功。
+// 1：表示 上传的文件超过了 php.ini 中 upload_max_filesize 的最大值。
+// 2：表示上传的文件超过了 HTML 表单中 MAX_FILE_SIZE 选项指定的值。
+// 3：表示文件部分被上传。
+// 4：都表示没有文件被上传。5：表示上传文件大小为0。
+// $zip=new ZipArchive();
+// $zipName,...$files
+// ZipArchive::extractTo：对压缩包进行解压。

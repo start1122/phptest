@@ -150,4 +150,63 @@ select strcmp('a','b');
 --- remstr默认为空白字符。因为在字符串 !!Hello! World!!! 中间也存在 ! 号，
 --- 所以只能用REPLACE()函数将!号替换成空字符的方法去掉所有!号
 
+---   返回当前日期   时间
 select curdate(),current_date();
+select curtime(),current_time();
+select now(),current_timestamp(),sysdate();
+---   返回当前日期时间
+
+---   返回日期中的月份
+select month('2017-02-19');
+select month(curdate()),monthname(curdate());
+
+---   返回星期几
+
+select dayname(now());
+
+---   返回一周内的第几天
+
+select dayofweek(now());
+select week(now());
+select year(now()),month(now()),day(now()),hour(now()),min(now()),second(now());
+
+---  datediff()  计算两个日期相差的天数
+
+select datediff('2020-04-20','2020-05-01');
+
+---  DATEDIFF计算两个时间的相差天数，DATE_FORMAT用于以不同的格式显示日期/时间数据，
+---  根据题意是要改为“ 年/月/日 ”的表示格式，所以应该为：%Y/%m/%d
+---  函数NOW() 用来显示当前的日期和时间，函数CURDATE() 用来显示日期，
+---  函数CURTIME() 用来显示时间，DATE_FORMAT() 函数用于以不同的格式显示日期或时间数据。
+
+
+---————————————其他常用函数——————————-----
+
+select version(),connection_id();
+---  数据库版本
+
+select database(),schema();
+---  数据库名称
+
+select user(),current_user(),system_user(),session_user();
+---  用户名称
+
+
+--- 得到上一步插入操作产生的auto_increment的值
+
+select last_insert_id();
+
+select md5('king');
+
+--- password() 密码加密算法
+
+select password(md5('king'));
+
+select password('king');
+
+--- DATABASE()显示当前使用的数据库
+--- SELECT USER()以utf8字符集中的字符串形式返回当前的MySQL用户名和主机名。SELECT VERSION()是用来打印MySQL的版本信息
+--- USER() ：以utf8字符集中的字符串形式返回当前的MySQL用户名和主机名。
+--- CONNECTION_ID():返回当前连接的连接ID，每个连接都有一个在数据库中唯一的ID。
+--- LAST_INSERT_ID()：自动返回上一步 INSERT或 UPDATE 操作，产生的AUTO_INCREMENT列的值，所以选择C。
+--- VERSION()：返回mysql服务器的版本，是utf8编码的字符串。
