@@ -1,26 +1,26 @@
 <?php
-// 会话是具有逻辑关联的多个简单交互的集合
-// 请求  响应
-// 逻辑关联
-// 登陆 下单 结算 结束
-// 具有一定顺序的多个HTTP请求
-// 每个HTTP请求都是单独处理的
-// HTTP是无状态协议
-// 每个请求都是单独处理的，协议无法识别当前用户
-// 给HTTP协议添加程序可识别的状态
-// 通过给请求分配令牌来识别用户
-// 令牌就是门票，每个人都是唯一的
+session_start();
+//超全局变量
+//$_SESSION['user'] = 'admin';
+// $_SESSION['user'] = array(
+// 	"username" => "admin",
+// 	"age" => 12
+// 	);
 
+var_dump($_SESSION);
 
+//session_unset();
 
-// 控制会话的开始与结束
-// 识别并处理会话内的请求
-// 更新会话的状态
+//session指用户进入网站到关闭浏览器的时间间隔
+//A用户和C服务器建立连接时所处的Session同B用户和C服务器建立连接时所处的Session是两个不同的Session。
+//session存储在服务端。
+//session可以解决http短连接问题
 
-// 使用cookie实现会话控制
-// 将数据保存在客户端（浏览器）
-// 用于存储用户关键信息
-// 通过http请求/响应头传输
-
-// 使用session实现会话控制
-// 保存在服务端 用于存储用户相关信息 通过保存在客户端的session id 来定位session内容
+//cookie和session 是http协议的一个补充机制 可以实现会话控制  都可以标记用户\客户端，可以存储数据
+// cookie将数据存储在客户端浏览器
+// session将数据存储在服务端 Php临时目录
+// cookie利用http协议直接传输会话数据
+// session利用session id来定位会话数据
+// cookie可以存储简单数据，比如字符串
+// session可以存储复杂数据，比如数组、对象
+// cookie保存的数据不能超过4k。
